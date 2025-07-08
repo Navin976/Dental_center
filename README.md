@@ -1,59 +1,149 @@
-# 🦷 Dental Center Management System
+# ENTNT Dental Center Management Dashboard
 
-A modern web-based dental clinic management system built with **React**, **Tailwind CSS**, and **Vite**. This dashboard offers separate views and features for both **Admin** and **Patient** users to manage appointments, profiles, schedules, and more.
+Hello there! This is a Dental Center Management system for ENTNT built with React(frontend-only). It allows an Admin (Dentist) to manage patients and appointments, and lets Patients see their own data. All data is stored in localStorage to simulate a real workflow without any backend.
 
----
+## 🔗 Live Demo
 
-## 🚀 Features
+Live Site: https://dentalmanagement.netlify.app/
 
-### 🔐 Authentication
-- Admin and Patient login system
-- Role-based routing
+## 📂 GitHub Repository
 
-### 👨‍⚕️ Admin Panel
-- View and manage appointments
-- Access and manage patient records
-- View calendar/schedule
+GitHub Repo: https://github.com/Navin976/Dental_center
 
-### 🧑‍💼 Patient Portal
-- Book appointments
-- View profile and treatment history
-- Responsive calendar view
+## ✨ Features
 
-### 🌐 UI/UX
-- Fully responsive layout
-- Built with Tailwind CSS and custom components
-- Clean and modern design
+- User Authentication (Admin & Patient)  
+- Session persistence via localStorage  
+- Role-based access control  
+- Dashboard with KPIs  
+- Patient management (Admin-only)  
+- Appointment management (Admin-only)  
+- Calendar view (Admin-only)  
+- Patient portal with their own appointments and treatment history  
+- File upload with preview (base64)  
+- Responsive design
 
----
+##  User Roles & Pages
 
-## 📦 Tech Stack
+### Admin (Dentist)
+- **Login:** admin@entnt.in / admin123  
+- **Pages for Admin:**
+  - Dashboard: Overview of KPIs, greeting, and quick stats.
+  - Patients: View, add, edit, and delete patient records.
+  - Appointments: Add and manage appointments for patients.
+  - Calendar: Visual monthly/weekly view of all appointments.
+  - Logout: Clear session and go back to login.
 
-- ⚛️ React
-- 💨 Tailwind CSS
-- ⚡ Vite
-- 🧭 React Router DOM
+### Patient (e.g., John Doe)
+- **Login:** john@entnt.in / patient123  
+- **Patient Dashboard:**
+  - Shows welcome message.
+  - Displays only the patient’s appointments and treatments.
+  - Allows viewing attached treatment files (e.g., invoices, X-rays).
 
----
+## 🔑 Login Credentials
 
-## 📸 Screenshots
+| Role    | Email             | Password   |
+|---------|-------------------|------------|
+| Admin   | admin@entnt.in    | admin123   |
+| Patient | john@entnt.in     | patient123 |
 
-> _You can upload screenshots in the GitHub repo under `/assets/screenshots` and reference them here like this:_
+## 🛠️ Tech Stack
 
-```markdown
-![Admin Dashboard](./assets/screenshots/admin-dashboard.png)
-![Patient View](./assets/screenshots/patient-view.png)
+- React (Functional Components)
+- React Router
+- Context API
+- TailwindCSS
+- LocalStorage (for simulating data persistence)
 
+## 🏗️ Project Structure
+
+```plaintext
 src/
+├── components/
+│   ├── KPIs.js                 # KPI widgets for admin dashboard
+│   ├── PatientList.js          # List, add, edit, delete patients
+│   ├── AppointmentList.js      # Manage patient appointments/incidents
+│   └── CalendarView.js         # Calendar UI to view appointments
 │
-├── components/        # Reusable components
+├── contexts/
+│   └── UserContext.js          # Global authentication state for logged-in user session
+│
 ├── pages/
-│   ├── admin/         # Admin dashboard pages
-│   └── patient/       # Patient dashboard pages
-├── data/              # Static sample data
-├── App.jsx            # Main routing logic
-└── main.jsx           # Entry point
+│   ├── LoginPage.jsx           # Login form for admin and patients
+│   ├── AdminDashboard.jsx      # Full-featured admin dashboard for dentists
+│   └── PatientDashboard.jsx    # Limited dashboard for patients to view their records
+│
+├── utils/
+│   └── storage.js              # Utility functions for reading/writing localStorage
+│
+├── App.js                      # Main app component, defines routes with React Router
+└── index.js                    # Entry point of the React app, renders App.js
+```
 
-Development Scripts
-npm start     # Run local development server
-npm run build # Build for production
+
+
+
+
+## 🗂️ Sample Data
+
+The app uses mock data stored in localStorage with two users: one Admin and one Patient. Patient data includes personal details and appointment records. File uploads (e.g., invoices, X-rays) are stored as base64 or blob URLs.
+
+## 🚀 Setup Instructions
+
+1. Clone this repo:
+git clone https://github.com/Navin976/Dental_center
+cd dental-center-management.git
+
+
+2. Install dependencies:
+npm install
+
+
+3. Start the app locally:
+npm start
+
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 📦 Deployment
+
+The app is deployed on Netlify. You can deploy it yourself by linking your GitHub repo to Netlify or Vercel, and it should work out of the box as it's a static React build.
+
+## ✅ Architecture & State Management
+
+- Auth state and user sessions are managed using React Context (`UserContext`).
+- All CRUD operations (add, edit, delete patients/appointments) read/write to `localStorage`.
+- Data updates trigger UI re-render via state and context updates.
+- App uses React Router for page-based routing (login, dashboards).
+
+## 🚚 How to Deploy on Netlify
+
+- Push your code to GitHub.
+- Go to Netlify and connect your repository.
+- Set build command as npm run build and publish directory as build/.
+- Click Deploy and wait for the build to finish.
+- Share your live URL!
+
+## 📝 Technical Decisions
+
+- Chose React Context over Redux for simplicity and because the app state is small.
+- Used TailwindCSS for faster styling and responsiveness.
+- File uploads are saved as base64 in localStorage to meet frontend-only requirements.
+- Avoided external APIs and backends as per assignment guidelines.
+
+## ⚠️ Issues / Limitations
+
+- Since data is in localStorage, it will reset if you clear browser storage.
+- File uploads are not optimized for large files (base64 can be heavy).
+
+## 🎉 Bonus Features
+
+- Animated clock and greeting in Admin dashboard.
+- Sun/moon switch based on time of day.
+- Visual calendar with clickable days showing appointments.
+
+## 📄 License
+This project is built for ENTNT as part of a technical assignment. No commercial license granted.
+
+## by ## [Naveen Pamujula]

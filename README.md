@@ -4,7 +4,7 @@ Hello there! This is a Dental Center Management system for ENTNT built with Reac
 
 ## 🔗 Live Demo
 
-Live Site: https://dentalmanagement.netlify.app/
+Live Site: https://dentalmanagemententnt.netlify.app/
 
 ## 📂 GitHub Repository
 
@@ -136,12 +136,6 @@ The app is deployed on Netlify. You can deploy it yourself by linking your GitHu
 
 - Since data is in localStorage, it will reset if you clear browser storage.
 - File uploads are not optimized for large files (base64 can be heavy).
-
-## 🎉 Bonus Features
-
-- Animated clock and greeting in Admin dashboard.
-- Sun/moon switch based on time of day.
-- Visual calendar with clickable days showing appointments.
 
 ## 📄 License
 This project is built for ENTNT as part of a technical assignment. No commercial license granted.
